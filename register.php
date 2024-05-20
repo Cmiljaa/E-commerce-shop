@@ -1,6 +1,17 @@
 <?php
+require_once 'app/config/config.php';
+require_once 'app/classes/User.php';
 
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $name = $_POST['name'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
+    $user = new User();
+
+    $created = $user -> create($name, $username, $email, $password);
+}
 
 ?>
 
