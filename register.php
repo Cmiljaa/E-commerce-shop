@@ -8,8 +8,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $user = new User();
-
     $created = $user -> create($name, $username, $email, $password);
 }
 

@@ -1,4 +1,36 @@
-<?php require_once 'inc/header.php'; ?>
+<?php 
+
+require_once 'inc/header.php'; 
+require_once 'app/classes/User.php';
+
+if($user -> isLogged()){
+  header("Location: index.php");
+  exit();
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $result = $user -> login($username, $password);
+
+  if(!$result){
+
+    $_SESSION['message']['type'] = 'danger';
+    $_SESSION['message']['text'] = 'Error!';
+
+    header("Location: login.php");
+    exit();
+  }else{
+    header("Location: index.php");
+    exit();
+  }
+
+  
+}
+
+?>
 
     <div class="row justify-content-center" style="margin-top: 70px;">
       <div class="col-md-4">
