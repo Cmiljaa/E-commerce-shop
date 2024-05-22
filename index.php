@@ -15,7 +15,7 @@ $products = $products -> fetch_all();
             <div class="card-body">
                 <h5 class="card-title"><?=$product['name']; ?></h5>
                 <p class="card-text"><?=$product['size']; ?></p>
-                <p class="card-text"><?=$product['price']; ?></p>
+                <p class="card-text"><?=$product['price']; ?>$</p>
                 <a href="product.php?product_id=<?= $product['product_id'] ?>" class="btn btn-primary">View Product</a>
             </div>
         </div>

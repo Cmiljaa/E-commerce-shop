@@ -25,6 +25,9 @@
                 <ul class="navbar-nav ml-auto">
                     <?php if($user -> isLogged()) : ?>
                         <li class="nav-item">
+                            <a class="nav-link" href="cart.php">🛒Cart</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="orders.php">My Orders</a>
                         </li>
                         <li class="nav-item">

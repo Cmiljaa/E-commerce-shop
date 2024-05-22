@@ -2,12 +2,25 @@
 
 require_once 'inc/header.php';
 require_once 'app/classes/Product.php';
-
-echo $_GET['product_id'];
+require_once 'app/classes/Cart.php';
 
 $product = new Product();
 
 $product = $product -> read($_GET['product_id']);
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    $product_id = $product['product_id'];
+
+    $user_id = $_SESSION['user_id'];
+    $cart = new Cart();
+
+    $cart -> add_to_cart($product_id, $user_id);
+
+    header("Location: cart.php");
+    exit();
+}
+
 
 ?>
 
@@ -19,7 +32,7 @@ $product = $product -> read($_GET['product_id']);
         <h2><?=$product['name']; ?></h2>
         <p>Size: <?=$product['size']; ?></p>
         <p>Price: <?=$product['price']; ?>$</p>
-        <form action="" mathod="POST">
+        <form action="" method="POST">
             <button type="submit" class="btn btn-primary">Add to Cart</button>
         </form>
     </div>
