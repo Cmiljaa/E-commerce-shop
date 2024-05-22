@@ -1,8 +1,12 @@
 <?php 
 
 require_once 'inc/header.php';
-require_once 'app/config/config.php';
 require_once 'app/classes/Cart.php';
+
+if(!$user -> isLogged()){
+    header("Location: login.php");
+    exit();
+}
 
 $cart = new Cart();
 

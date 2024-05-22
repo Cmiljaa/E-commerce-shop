@@ -8,6 +8,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    $user = new User();
+
     $created = $user -> create($name, $username, $email, $password);
 }
 
@@ -17,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     <h1 class="mt-5 mb-3">Register</h1>
 
-    <form method="post" action="">
+    <form method="POST" action="">
         <div class="form-group mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" name="name" required>

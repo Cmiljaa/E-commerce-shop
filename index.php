@@ -1,6 +1,12 @@
 <?php
 require_once 'inc/header.php';
 require_once 'app/classes/Product.php';
+require_once 'app/classes/User.php';
+
+if(!$user -> isLogged()){
+    header("Location: login.php");
+    exit();
+}
 
 $products = new Product();
 
