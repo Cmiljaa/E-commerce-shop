@@ -24,18 +24,28 @@ $results = $cart -> get_cart_items();
             <th>Image</th>
         </thead>
         <tbody>
-            <?php foreach($results as $result): ?>
+            <?php if(count($results) == 0): ?>
                 <tr>
-                    <td><?=$result['name']; ?></td>
-                    <td><?=$result['price']; ?></td>
-                    <td><?=$result['size']; ?></td>
-                    <td><?=$result['quantity']; ?></td>
-                    <td><img src="<?=$result['image']; ?>" alt=""></td>
+                    <td colspan="5">No items found</td>
                 </tr>
-            <?php endforeach;?>
+            <?php else: ?>
+                <?php foreach($results as $result): ?>
+                    <tr>
+                        <td><?=$result['name']; ?></td>
+                        <td><?=$result['price']; ?></td>
+                        <td><?=$result['size']; ?></td>
+                        <td><?=$result['quantity']; ?></td>
+                        <td><img src="<?=$result['image']; ?>" alt=""></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </tbody>
     </table>
-    <a href="checkout.php" class="btn btn-success">Checkout</a>
+    
+    <?php if(count($results) != 0): ?>
+        <a href="checkout.php" class="btn btn-success">Checkout</a>
+    <?php endif; ?>
+
 </div>
 
 <?php require_once 'inc/footer.php'; ?>

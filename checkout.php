@@ -16,8 +16,15 @@ $cart_items = $cart -> get_cart_items();
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $order = new Order();
-    $order = $order -> create($cart_items);
 
+    $delivery_address = $_POST['country'] . ", " . $_POST['city'] . ", " . $_POST['zip'] . ", " . $_POST['address'];
+
+    $order = $order -> create($delivery_address);
+
+    $_SESSION['message']['type'] = "success";
+    $_SESSION['message']['text'] = "Successfully!";
+    header("Location: orders.php");
+    exit();
 }
 
 ?>

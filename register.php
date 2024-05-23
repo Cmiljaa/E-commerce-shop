@@ -11,6 +11,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $user = new User();
 
     $created = $user -> create($name, $username, $email, $password);
+
+    if ($created) {
+        $_SESSION['message']['type'] = "success";
+        $_SESSION['message']['text'] = "Successfully registred account!";
+        header("Location: index.php");
+        exit();
+    } else {
+        $_SESSION['message']['type'] = "danger";
+        $_SESSION['message']['text'] = "Error!";
+        header("Location: register.php");
+        exit();
+    }
 }
 
 ?>
