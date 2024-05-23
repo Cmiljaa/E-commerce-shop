@@ -12,7 +12,6 @@ class Order extends Cart{
     }
 
     public function create(){
-        var_dump($this -> get_cart_items());
         
     }
 

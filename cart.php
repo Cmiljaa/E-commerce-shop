@@ -18,8 +18,9 @@ $results = $cart -> get_cart_items();
     <table class="table table-striped">
         <thead>
             <th>Product name</th>
-            <th>Size</th>
             <th>Price</th>
+            <th>Size</th>
+            <th>Quantity</th>
             <th>Image</th>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@ $results = $cart -> get_cart_items();
                     <td><?=$result['name']; ?></td>
                     <td><?=$result['price']; ?></td>
                     <td><?=$result['size']; ?></td>
+                    <td><?=$result['quantity']; ?></td>
                     <td><img src="<?=$result['image']; ?>" alt=""></td>
                 </tr>
             <?php endforeach;?>
