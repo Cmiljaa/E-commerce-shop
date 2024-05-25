@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   }
   else{
     if($user -> isAdmin()){
-      header("Location: admin_dashboard.php");
+      header("Location: admin/index.php");
       exit();
     }
     else{
