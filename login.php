@@ -22,12 +22,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     header("Location: login.php");
     exit();
-  }else{
-    header("Location: index.php");
-    exit();
+  }
+  else{
+    if($user -> isAdmin()){
+      header("Location: admin_dashboard.php");
+      exit();
+    }
+    else{
+      header("Location: index.php");
+      exit();
+    }
+    
   }
 
-  
 }
 
 ?>

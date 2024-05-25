@@ -25,6 +25,7 @@ class User{
         if($result){
            $_SESSION['message']['type'] = "success";
            $_SESSION['message']['text'] = "Successfully added member!";
+           $_SESSION['user_id'] = $stmt -> insert_id;
            header("Location: index.php");
            exit();
         }
@@ -59,6 +60,21 @@ class User{
             }
 
         }
+        return false;
+    }
+
+    public function isAdmin(){
+
+        $sql = "SELECT * FROM users WHERE user_id = ? AND is_admin=1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt -> bind_param("i", $_SESSION['user_id']);
+        $stmt -> execute();
+        $result = $stmt -> get_result();
+
+        if($result -> num_rows > 0){
+            return true;
+        }
+
         return false;
     }
 
