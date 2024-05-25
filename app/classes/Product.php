@@ -9,7 +9,7 @@ Class Product{
         $this -> conn = $conn;
     }
 
-    public function fetch_all(){
+    public function get_products(){
 
         $sql = "SELECT * FROM products";
 

@@ -10,7 +10,8 @@ if(!$user -> isLogged()){
 
 $products = new Product();
 
-$products = $products -> fetch_all();
+$products = $products -> get_products();
+
 ?>
 
 <div class="row">
