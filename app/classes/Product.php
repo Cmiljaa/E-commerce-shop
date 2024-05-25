@@ -47,7 +47,9 @@ Class Product{
     public function update($product_id, $name, $price, $size, $image){
 
         $stmt = $this -> conn -> prepare("UPDATE products SET name=?, price=?, size=?, image=? WHERE product_id = ? ");
+
         $stmt -> bind_param("ssssi", $name, $price, $size, $image, $product_id);
+
         $stmt -> execute();
 
     }
@@ -55,7 +57,9 @@ Class Product{
     public function delete($product_id){
         
         $stmt = $this -> conn -> prepare("DELETE FROM products WHERE product_id = ?");
+
         $stmt -> bind_param("i", $product_id);
+
         $stmt -> execute();
     }
 

@@ -23,16 +23,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     header("Location: login.php");
     exit();
   }
+  
+  if($user -> isAdmin()){
+    header("Location: admin/index.php");
+    exit();
+  }
   else{
-    if($user -> isAdmin()){
-      header("Location: admin/index.php");
-      exit();
-    }
-    else{
-      header("Location: index.php");
-      exit();
-    }
-    
+    header("Location: index.php");
+    exit();
   }
 
 }

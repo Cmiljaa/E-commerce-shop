@@ -1,6 +1,5 @@
 <?php 
 
-
 class Cart{
 
     protected $conn;
