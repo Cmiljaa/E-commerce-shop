@@ -48,6 +48,7 @@ else{
 <body>
 
     <div class="container" style="margin-top: 60px;">
+        <h1>Add product</h1>
         <form action="" method="POST">
             <div class="form-group mb-3">
                 <label for="name">Product Name</label>
