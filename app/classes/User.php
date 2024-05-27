@@ -6,6 +6,13 @@ class User extends Database{
 
         $password = password_hash($password, PASSWORD_DEFAULT);
 
+        if($this->usernameExists($username)){
+            $_SESSION['message']['type'] = "danger";
+            $_SESSION['message']['text'] = "Username already exists!";
+            header("Location: register.php");
+            exit();
+        }
+
         $sql = "INSERT INTO users(name, username, email, password) VALUES(?, ?, ?, ?)";
 
         $stmt = $this->conn->prepare($sql);
@@ -70,6 +77,22 @@ class User extends Database{
         var_dump($_SESSION['user_id']);
         var_dump($result);
         
+
+        return false;
+    }
+
+    public function usernameExists($username){
+
+        $sql = "SELECT * FROM users WHERE username = ?";
+        $stmt = $this -> conn -> prepare($sql);
+
+        $stmt -> bind_param("s", $username);
+        $stmt -> execute();
+        $results = $stmt -> get_result();
+
+        if($results -> num_rows > 0){
+            return true;
+        }
 
         return false;
     }
