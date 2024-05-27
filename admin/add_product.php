@@ -55,7 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group mb-3">
                 <input type="submit" class="btn btn-primary" value="Add Product">
             </div>
-        </form> 
+        </form>
+        <div>
+            <a href="index.php"><button class="btn btn-primary">Homepage</button></a>
+        </div>
     </div>
 </body>
 

@@ -52,6 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="submit" class="btn btn-primary" value="Update Product">
             </div>
         </form>
+        <div>
+            <a href="index.php"><button class="btn btn-primary">Homepage</button></a>
+        </div>
     </div>
     
 </body>
