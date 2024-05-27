@@ -1,4 +1,14 @@
-<?php require_once '../app/config/config.php'; ?>
+<?php 
+
+require_once 'app/config/Database.php'; 
+require_once 'app/classes/User.php';
+
+$db = new Database();
+$db -> startSession();
+
+$user = new User(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

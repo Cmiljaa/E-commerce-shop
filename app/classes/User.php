@@ -67,6 +67,10 @@ class User extends Database{
             return true;
         }
 
+        var_dump($_SESSION['user_id']);
+        var_dump($result);
+        
+
         return false;
     }
 

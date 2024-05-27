@@ -12,9 +12,8 @@ class Database{
         }
     }
 
-    public function getConnection(){
+    public function startSession(){
         session_start();
-        return $this-> conn;
     }
 
 }

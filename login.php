@@ -16,7 +16,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   $result = $user -> login($username, $password);
 
   if(!$result){
-
     $_SESSION['message']['type'] = 'danger';
     $_SESSION['message']['text'] = 'Error!';
 
@@ -28,7 +27,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     header("Location: admin/index.php");
     exit();
   }
-  else{
+
+  if($result){
     header("Location: index.php");
     exit();
   }
