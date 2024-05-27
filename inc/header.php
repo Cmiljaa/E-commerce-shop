@@ -1,4 +1,4 @@
-<?php require_once 'app/config/config.php';  require_once 'app/classes/User.php'; $user = new User(); ?>
+<?php require_once '../app/config/config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

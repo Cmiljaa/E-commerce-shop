@@ -1,15 +1,8 @@
 <?php 
 
-class Cart{
+class Cart extends Database{
 
-    protected $conn;
 
-    public function __construct()
-    {
-        global $conn;
-
-        $this -> conn = $conn;
-    }
 
     public function add_to_cart($product_id, $user_id, $quantity){
 

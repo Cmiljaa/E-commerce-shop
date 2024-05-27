@@ -1,13 +1,6 @@
 <?php 
 
-Class Product{
-    protected $conn;
-
-    public function __construct()
-    {
-        global $conn;
-        $this -> conn = $conn;
-    }
+Class Product extends Database{
 
     public function get_products(){
 

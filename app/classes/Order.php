@@ -4,15 +4,6 @@ require_once 'Cart.php';
 
 class Order extends Cart{
 
-    protected $conn;
-
-    public function __construct()
-    {
-        global $conn;
-
-        $this -> conn = $conn;
-    }
-
     public function create($delivery_address){
 
         $stmt = $this->conn->prepare("INSERT INTO orders(user_id, delivery_address) VALUES(?,?)");

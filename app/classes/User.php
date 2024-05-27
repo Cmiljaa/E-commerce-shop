@@ -1,14 +1,6 @@
-<?php 
+<?php
 
-class User{
-
-    protected $conn;
-
-    public function __construct()
-    {
-        global $conn;
-        $this -> conn = $conn;
-    }
+class User extends Database{
 
     public function create($name, $username, $email, $password){
 

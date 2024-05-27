@@ -1,8 +1,6 @@
 <?php
-require_once 'app/config/config.php';
+require_once 'inc/header.php';
 require_once 'app/classes/User.php';
-
-$user = new User();
 
 if ($user->isLogged()) {
     header("Location: index.php");
@@ -15,8 +13,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    $user = new User();
 
     $created = $user -> create($name, $username, $email, $password);
 

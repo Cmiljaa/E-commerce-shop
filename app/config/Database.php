@@ -10,12 +10,11 @@ class Database{
         if(!$this->conn){
             echo "Error! Database is not connected!";
         }
-        session_start();
     }
 
     public function getConnection(){
-        return $this->conn;
+        session_start();
+        return $this-> conn;
     }
-
 
 }
