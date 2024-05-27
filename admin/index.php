@@ -1,21 +1,8 @@
 <?php 
 
-require_once '../app/config/Database.php';
-require_once '../app/classes/User.php';
-require_once '../app/classes/Product.php';
+require_once 'config.php';
 
-session_start();
-
-$user = new User();
-
-if(!$user->isAdmin()){
-    header("Location: ../login.php");
-    exit();
-}
-
-$products = new Product();
-
-$products = $products -> get_products();
+$products = $product -> get_products();
 
 ?>
 

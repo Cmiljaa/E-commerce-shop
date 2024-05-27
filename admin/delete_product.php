@@ -1,22 +1,9 @@
 <?php 
 
-require_once '../app/config/Database.php';
-require_once '../app/classes/User.php';
-require_once '../app/classes/Product.php';
+require_once 'config.php';
 
-$user = new User();
+$product -> delete($_GET['id']);
 
-if(!$user->isLogged() || !$user->isAdmin()){
-    header("Location: ../login.php");
-    exit();
-}
-else{
-    
-    $admin = new Product();
+header("Location: index.php");
 
-    $admin -> delete($_GET['id']);
-
-    header("Location: index.php");
-
-    exit();
-}
+exit();

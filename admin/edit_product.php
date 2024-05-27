@@ -1,33 +1,20 @@
 <?php 
 
-require_once '../app/config/Database.php';
-require_once '../app/classes/User.php';
-require_once '../app/classes/Product.php';
+require_once 'config.php';
 
-$user = new User();
+$products = $product -> read($_GET['id']);
 
-if(!$user->isLogged() || !$user->isAdmin()){
-    header("Location: ../login.php");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $product_id = $_GET['id'];
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $size = $_POST['size'];
+    $image = $_POST['image'];
+
+    $product->update($product_id, $name, $price, $size, $image);
+
+    header("Location: edit_product.php?id=". $product_id);
     exit();
-}
-else{
-    
-    $product = new Product();
-
-    $products = $product -> read($_GET['id']);
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $product_id = $_GET['id'];
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-        $size = $_POST['size'];
-        $image = $_POST['image'];
-
-        $product->update($product_id, $name, $price, $size, $image);
-
-        header("Location: edit_product.php?id=". $product_id);
-        exit();
-    }
 }
 
 ?>

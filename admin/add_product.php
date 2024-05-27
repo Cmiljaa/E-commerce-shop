@@ -1,40 +1,24 @@
 <?php 
 
-require_once '../app/config/Database.php';
-require_once '../app/classes/User.php';
-require_once '../app/classes/Product.php';
+require_once 'config.php';
 
-session_start();
-
-$user = new User();
-
-if(!$user->isLogged() || !$user->isAdmin()){
-    header("Location: ../login.php");
-    exit();
-}
-else{
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-    $product = new Product();
+    $name = $_POST['name'];
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        
-        $name = $_POST['name'];
+    $price = $_POST['price'];
 
-        $price = $_POST['price'];
+    $size = $_POST['size'];
 
-        $size = $_POST['size'];
+    $image = $_POST['image'];
 
-        $image = $_POST['image'];
+    $product -> create($name, $price, $size, $image);
 
-        $product -> create($name, $price, $size, $image);
-
-        header("Location: index.php");
-        exit();
-    }
+    header("Location: index.php");
+    exit();
 }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
