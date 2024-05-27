@@ -6,7 +6,7 @@ class ResponseManager{
     }
     
     public function redirect($path){
-        header("Location: $path");
+        header($path);
         exit();
     }
 }

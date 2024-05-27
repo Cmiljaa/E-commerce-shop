@@ -10,5 +10,4 @@ $user = new User();
 
 $user -> logout();
 
-header("Location: login.php");
-exit();
+$response -> redirect("Location: login.php");

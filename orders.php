@@ -4,8 +4,7 @@ require_once 'inc/header.php';
 require_once 'app/classes/Order.php';
 
 if(!$user -> isLogged()){
-    header("Location: login.php");
-    exit();
+    $response -> redirect("Location: login.php");
 }
 
 $order = new Order();

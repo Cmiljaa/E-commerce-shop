@@ -2,9 +2,13 @@
 
 require_once 'app/config/Database.php'; 
 require_once 'app/classes/User.php';
+require_once 'app/config/ResponseManager.php';
+
 
 $db = new Database();
 $db -> startSession();
+
+$response = new ResponseManager();
 
 $user = new User(); ?>
 

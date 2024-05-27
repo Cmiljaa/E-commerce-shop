@@ -13,8 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $product->update($product_id, $name, $price, $size, $image);
 
-    header("Location: edit_product.php?id=". $product_id);
-    exit();
+    $response -> redirect("Location: edit_product.php?id=". $product_id);
 }
 
 ?>

@@ -3,8 +3,7 @@ require_once 'inc/header.php';
 require_once 'app/classes/User.php';
 
 if ($user->isLogged()) {
-    header("Location: index.php");
-    exit();
+    $response -> redirect("Location: index.php");
 }
 
 
@@ -17,15 +16,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $created = $user -> create($name, $username, $email, $password);
 
     if ($created) {
-        $_SESSION['message']['type'] = "success";
-        $_SESSION['message']['text'] = "Successfully registred account!";
-        header("Location: index.php");
-        exit();
+        $response -> sessionMessage("success", "Successfully registred account!");
+        $response -> redirect("Location: index.php");
     } else {
-        $_SESSION['message']['type'] = "danger";
-        $_SESSION['message']['text'] = "Error!";
-        header("Location: register.php");
-        exit();
+        $response -> sessionMessage("danger", "Error!");
+        $response -> redirect("Location: register.php");
     }
 }
 

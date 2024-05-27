@@ -5,8 +5,7 @@ require_once 'app/classes/Cart.php';
 require_once 'app/classes/Order.php';
 
 if(!$user -> isLogged()){
-    header("Location: login.php");
-    exit();
+    $response -> redirect("Location: login.php");
 }
 
 $cart = new Cart();
@@ -21,10 +20,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $order = $order -> create($delivery_address);
 
-    $_SESSION['message']['type'] = "success";
-    $_SESSION['message']['text'] = "Successfully!";
-    header("Location: orders.php");
-    exit();
+    $response -> sessionMessage("success", "Successfully!");
+    
+    $response -> redirect("Location: orders.php");
 }
 
 ?>

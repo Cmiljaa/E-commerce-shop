@@ -14,8 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $product -> create($name, $price, $size, $image);
 
-    header("Location: index.php");
-    exit();
+    $response -> redirect("Location: index.php");
 }
 
 ?>

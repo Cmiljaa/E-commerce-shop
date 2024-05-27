@@ -4,8 +4,7 @@ require_once 'inc/header.php';
 require_once 'app/classes/User.php';
 
 if($user -> isLogged()){
-  header("Location: index.php");
-  exit();
+  $response -> redirect("Location: index.php");
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -16,21 +15,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   $result = $user -> login($username, $password);
 
   if(!$result){
-    $_SESSION['message']['type'] = 'danger';
-    $_SESSION['message']['text'] = 'Error!';
-
-    header("Location: login.php");
-    exit();
+    $response -> sessionMessage("danger", "Error!");
+    $response -> redirect("Location: login.php");
   }
   
   if($user -> isAdmin()){
-    header("Location: admin/index.php");
-    exit();
+    $response -> redirect("Location: admin/index.php");
   }
 
   if($result){
-    header("Location: index.php");
-    exit();
+    $response -> redirect("Location: index.php");
   }
 
 }

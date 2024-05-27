@@ -4,8 +4,7 @@ require_once 'app/classes/Product.php';
 require_once 'app/classes/User.php';
 
 if(!$user -> isLogged()){
-    header("Location: login.php");
-    exit();
+    $response -> redirect("Location: login.php");
 }
 
 $products = new Product();
