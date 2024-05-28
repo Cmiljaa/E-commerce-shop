@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $cart = new Cart();
 
-    $cart -> add_to_cart($product_id, $user_id, $quantity);
+    $cart -> addToCart($product_id, $user_id, $quantity);
 
     $response -> redirect("Location: cart.php");
 }

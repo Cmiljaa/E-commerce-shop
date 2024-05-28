@@ -2,7 +2,7 @@
 
 require_once 'admin_config.php';
 
-$products = $product -> get_products();
+$products = $product -> getProducts();
 
 ?>
 

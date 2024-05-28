@@ -9,7 +9,7 @@ if(!$user -> isLogged()){
 
 $cart = new Cart();
 
-$results = $cart -> get_cart_items();
+$results = $cart -> getCartItems();
 
 ?>
 

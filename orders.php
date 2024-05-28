@@ -8,7 +8,7 @@ if(!$user -> isLogged()){
 }
 
 $order = new Order();
-$orders = $order -> get_orders();
+$orders = $order -> getOrders();
 
 ?>
 

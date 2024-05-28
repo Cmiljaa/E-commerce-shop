@@ -3,7 +3,6 @@
 class User extends Database{
 
     public function create($name, $username, $email, $password){
-
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         if($this->usernameExists($username)){
@@ -37,7 +36,6 @@ class User extends Database{
     }
 
     public function login($username, $password){
-
         $sql = "SELECT * FROM users WHERE username = ?";
 
         $stmt = $this -> conn -> prepare($sql);
@@ -63,11 +61,14 @@ class User extends Database{
     }
 
     public function isAdmin(){
-
         $sql = "SELECT * FROM users WHERE user_id = ? AND is_admin=1";
+
         $stmt = $this->conn->prepare($sql);
+
         $stmt -> bind_param("i", $_SESSION['user_id']);
+
         $stmt -> execute();
+
         $result = $stmt -> get_result();
 
         if($result -> num_rows > 0){
@@ -76,14 +77,13 @@ class User extends Database{
 
         var_dump($_SESSION['user_id']);
         var_dump($result);
-        
 
         return false;
     }
 
     public function usernameExists($username){
-
         $sql = "SELECT * FROM users WHERE username = ?";
+
         $stmt = $this -> conn -> prepare($sql);
 
         $stmt -> bind_param("s", $username);
@@ -98,7 +98,6 @@ class User extends Database{
     }
 
     public function isLogged(){
-
         if(isset($_SESSION['user_id'])){
             return true;
         }

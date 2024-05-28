@@ -28,6 +28,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 <?php require_once 'inc/header.php' ?>
 
+    <link rel="stylesheet" href="public/css/style.css">
+
     <h1 class="mt-5 mb-3">Register</h1>
 
     <form method="POST" action="">
@@ -49,5 +51,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <script src="public/js/Validator.js"></script>
+    <script src="public/js/main.js"></script>
 
 <?php require_once 'inc/footer.php'; ?>

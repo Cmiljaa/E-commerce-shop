@@ -10,7 +10,7 @@ if(!$user -> isLogged()){
 
 $cart = new Cart();
 
-$cart_items = $cart -> get_cart_items();
+$cart_items = $cart -> getCartItems();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 

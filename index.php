@@ -9,7 +9,7 @@ if(!$user -> isLogged()){
 
 $products = new Product();
 
-$products = $products -> get_products();
+$products = $products -> getProducts();
 
 ?>
 

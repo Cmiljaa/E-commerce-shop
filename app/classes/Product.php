@@ -2,8 +2,7 @@
 
 Class Product extends Database{
 
-    public function get_products(){
-
+    public function getProducts(){
         $sql = "SELECT * FROM products";
 
         $stmt = $this -> conn -> query($sql);
@@ -12,17 +11,14 @@ Class Product extends Database{
     }
 
     public function create($name, $price, $size, $image){
-
         $stmt = $this -> conn -> prepare("INSERT INTO products(name, price, size, image) VALUES(?,?,?,?)");
 
         $stmt -> bind_param("ssss", $name, $price, $size, $image);
 
         $stmt -> execute();
-
     }
 
     public function read($product_id){
-
         $sql = "SELECT * FROM products WHERE product_id = ?";
 
         $stmt = $this->conn->prepare($sql);
@@ -34,21 +30,17 @@ Class Product extends Database{
         $result = $stmt -> get_result();
 
         return $result -> fetch_assoc();
-
     }
 
     public function update($product_id, $name, $price, $size, $image){
-
         $stmt = $this -> conn -> prepare("UPDATE products SET name=?, price=?, size=?, image=? WHERE product_id = ? ");
 
         $stmt -> bind_param("ssssi", $name, $price, $size, $image, $product_id);
 
         $stmt -> execute();
-
     }
 
     public function delete($product_id){
-        
         $stmt = $this -> conn -> prepare("DELETE FROM products WHERE product_id = ?");
 
         $stmt -> bind_param("i", $product_id);
