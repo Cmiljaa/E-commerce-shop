@@ -11,6 +11,7 @@ Class Product extends Database{
     }
 
     public function create($name, $price, $size, $image){
+
         $stmt = $this -> conn -> prepare("INSERT INTO products(name, price, size, image) VALUES(?,?,?,?)");
 
         $stmt -> bind_param("ssss", $name, $price, $size, $image);

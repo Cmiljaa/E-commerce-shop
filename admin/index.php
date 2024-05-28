@@ -22,7 +22,7 @@ $products = $product -> getProducts();
     <div class="container" style="margin-top: 60px;">
         <a href="add_product.php" class="btn btn-success">Add Product</a>
 
-        <table class="table table-striped">
+        <table class="table table-striped" style="text-align: center;">
             <thead>
                 <tr>
                     <th scope="col">Product ID</th>
@@ -34,21 +34,27 @@ $products = $product -> getProducts();
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php foreach ($products as $product): ?>
+            <tbody style=" vertical-align: middle;">
+                <?php if(count($products) > 0): ?>
+                    <?php foreach ($products as $product): ?>
+                        <tr>
+                            <th scope="row"><?= $product['product_id'] ?></th>
+                            <td><?= $product['name'] ?></td>
+                            <td><?= $product['price'] ?></td>
+                            <td><?= $product['size'] ?></td>
+                            <td><img style="width: 120px; height: 100px;" src="..<?= $product['image'] ?>" alt="..<?= $product['image'] ?>"></td>
+                            <td><?= $product['created_at'] ?></td>
+                            <td>
+                                <a href="edit_product.php?id=<?= $product['product_id'] ?>" class="btn btn-primary">Edit</a>
+                                <a href="delete_product.php?id=<?= $product['product_id'] ?>" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
                     <tr>
-                        <th scope="row"><?= $product['product_id'] ?></th>
-                        <td><?= $product['name'] ?></td>
-                        <td><?= $product['price'] ?></td>
-                        <td><?= $product['size'] ?></td>
-                        <td><?= $product['image'] ?></td>
-                        <td><?= $product['created_at'] ?></td>
-                        <td>
-                            <a href="edit_product.php?id=<?= $product['product_id'] ?>" class="btn btn-primary">Edit</a>
-                            <a href="delete_product.php?id=<?= $product['product_id'] ?>" class="btn btn-danger">Delete</a>
-                        </td>
+                        <td colspan="10">No products found</td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
         <div>
