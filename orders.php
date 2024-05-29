@@ -12,7 +12,7 @@ $orders = $order -> getOrders();
 
 ?>
 
-<table class="table table-striped">
+<table class="table table-striped" style="text-align: center;">
     <thead>
         <th>Order ID</th>
         <th>Product Name</th>
@@ -23,7 +23,7 @@ $orders = $order -> getOrders();
         <th>Delivery Address</th>
         <th>Order Date</th>
     </thead>
-    <tbody>
+    <tbody style="vertical-align: middle;">
         <?php if(count($orders) == 0): ?>
             <tr>
                 <td colspan="10">No orders found</td>
@@ -36,7 +36,7 @@ $orders = $order -> getOrders();
                 <td><?=$order['quantity'] ?></td>
                 <td><?=$order['price'] ?></td>
                 <td><?=$order['size'] ?></td>
-                <td><?=$order['image'] ?></td>
+                <td><img style="width: 140px; height: 140px;;" src="images/<?=$order['image'] ?>" alt="<?=$order['image'] ?>"></td>
                 <td><?=$order['delivery_address'] ?></td>
                 <td><?=$order['created_at'] ?></td>
                 </tr>

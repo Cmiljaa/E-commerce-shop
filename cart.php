@@ -14,7 +14,7 @@ $results = $cart -> getCartItems();
 ?>
 
 <div class="container">
-    <table class="table table-striped">
+    <table class="table table-striped" style="text-align: center;">
         <thead>
             <th>Product name</th>
             <th>Price</th>
@@ -22,7 +22,7 @@ $results = $cart -> getCartItems();
             <th>Quantity</th>
             <th>Image</th>
         </thead>
-        <tbody>
+        <tbody style="vertical-align: middle;">
             <?php if(count($results) == 0): ?>
                 <tr>
                     <td colspan="5">No items found</td>
@@ -34,7 +34,7 @@ $results = $cart -> getCartItems();
                         <td><?=$result['price']; ?></td>
                         <td><?=$result['size']; ?></td>
                         <td><?=$result['quantity']; ?></td>
-                        <td><img src="<?=$result['image']; ?>" alt=""></td>
+                        <td><img style="width: 120px; height: 100px;" src="images/<?=$result['image']; ?>" alt="<?=$result['image']; ?>"></td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>

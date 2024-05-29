@@ -28,13 +28,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 <div class="row">
     <div class="col-lg-6">
-        <img class="img-fluid" src="<?=$product['image'] ?>" alt="<?=$product['name'] ?>">
+        <img class="img-fluid" src="images/<?=$product['image'] ?>" alt="<?=$product['name'] ?>">
     </div>
     <div class="col-lg-6">
         <h2><?=$product['name']; ?></h2>
         <p>Size: <?=$product['size']; ?></p>
         <p>Price: <?=$product['price']; ?>$</p>
         <form action="" method="POST">
+            Quantity:
             <input type="number" name="quantity" class="form-control"><br>
             <button type="submit" class="btn btn-primary">Add to Cart</button>
         </form>

@@ -42,7 +42,7 @@ $products = $product -> getProducts();
                             <td><?= $product['name'] ?></td>
                             <td><?= $product['price'] ?></td>
                             <td><?= $product['size'] ?></td>
-                            <td><img style="width: 120px; height: 100px;" src="..<?= $product['image'] ?>" alt="..<?= $product['image'] ?>"></td>
+                            <td><img style="width: 150px; height: 150px;" src="../images/<?= $product['image'] ?>" alt="../images/<?= $product['image'] ?>"></td>
                             <td><?= $product['created_at'] ?></td>
                             <td>
                                 <a href="edit_product.php?id=<?= $product['product_id'] ?>" class="btn btn-primary">Edit</a>
@@ -57,7 +57,7 @@ $products = $product -> getProducts();
                 <?php endif; ?>
             </tbody>
         </table>
-        <div>
+        <div style="margin-bottom: 15px;">
             <a href="../logout.php"><button class="btn btn-danger">Logout</button></a>
         </div>
 

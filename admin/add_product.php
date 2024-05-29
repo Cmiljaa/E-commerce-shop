@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $image = $_POST['image'];
 
+    echo $image;
+    
     $product -> create($name, $price, $size, $image);
 
     $response -> redirect("Location: index.php");

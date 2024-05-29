@@ -17,7 +17,7 @@ $products = $products -> getProducts();
     <?php foreach($products as $product): ?>
     <div class="col-md-4">
         <div class="card">
-            <img src="<?= $product['image']; ?>" alt="<?= $product['name']; ?>" class="card-image-top">
+            <img src="images/<?= $product['image']; ?>" alt="<?= $product['name']; ?>" class="card-image-top">
             <div class="card-body">
                 <h5 class="card-title"><?=$product['name']; ?></h5>
                 <p class="card-text"><?=$product['size']; ?></p>
