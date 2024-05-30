@@ -31,7 +31,7 @@ $results = $cart -> getCartItems();
                 <?php foreach($results as $result): ?>
                     <tr>
                         <td><?=$result['name']; ?></td>
-                        <td><?=$result['price']; ?></td>
+                        <td><?=$result['price']; ?>$</td>
                         <td><?=$result['size']; ?></td>
                         <td><?=$result['quantity']; ?></td>
                         <td><img style="width: 120px; height: 100px;" src="images/<?=$result['image']; ?>" alt="<?=$result['image']; ?>"></td>

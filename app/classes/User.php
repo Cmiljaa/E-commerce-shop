@@ -13,11 +13,8 @@ class User extends Database{
         }
 
         $sql = "INSERT INTO users(name, username, email, password) VALUES(?, ?, ?, ?)";
-
         $stmt = $this->conn->prepare($sql);
-
         $stmt -> bind_param("ssss", $name, $username, $email, $password);
-
         $result = $stmt -> execute();
 
         if($result){
@@ -36,14 +33,11 @@ class User extends Database{
     }
 
     public function login($username, $password){
+        
         $sql = "SELECT * FROM users WHERE username = ?";
-
         $stmt = $this -> conn -> prepare($sql);
-
         $stmt -> bind_param("s", $username);
-
         $stmt -> execute();
-
         $results = $stmt -> get_result();
 
         if($results -> num_rows == 1){

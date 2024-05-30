@@ -6,8 +6,13 @@ if ($user->isLogged()) {
     $response -> redirect("Location: index.php");
 }
 
-
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    if(!isset($_POST['name']) || !isset($_POST['username']) ||!isset($_POST['email']) ||!isset($_POST['password'])){
+        $response -> sessionMessage("danger", "Error!");
+        exit();
+    }
+
     $name = $_POST['name'];
     $username = $_POST['username'];
     $email = $_POST['email'];

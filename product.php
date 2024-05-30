@@ -6,9 +6,19 @@ require_once 'app/classes/Cart.php';
 
 $product = new Product();
 
+if(!isset($_GET['product_id'])){
+    $response -> sessionMessage("danger", "Error!");
+    exit();
+}
+
 $product = $product -> read($_GET['product_id']);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    if(!isset($_POST['quantity'])){
+        $response -> sessionMessage("danger", "Error!");
+        exit();
+    }
 
     $product_id = $product['product_id'];
 
@@ -36,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <p>Price: <?=$product['price']; ?>$</p>
         <form action="" method="POST">
             Quantity:
-            <input type="number" name="quantity" class="form-control"><br>
+            <input type="number" min = 1 max = 5 name="quantity" class="form-control"><br>
             <button type="submit" class="btn btn-primary">Add to Cart</button>
         </form>
     </div>

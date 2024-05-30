@@ -5,6 +5,12 @@ require_once 'admin_config.php';
 $products = $product -> read($_GET['id']);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if(!isset($_POST['name']) || !isset($_POST['price']) || !isset($_POST['size']) || !isset($_POST['image']) || !isset($_GET['id'])){
+        $response -> sessionMessage("danger", "Error!");
+        exit();
+    }
+
     $product_id = $_GET['id'];
     $name = $_POST['name'];
     $price = $_POST['price'];
@@ -36,16 +42,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h1>Edit product</h1>
         <form action="" method="POST">
             <div class="form-group mb-3">
-                <input type="text" class="form-control" name="name" id="name" value="<?= $products['name'] ?>">
+                <input type="text" class="form-control" name="name" id="name" value="<?= $products['name'] ?>" required>
             </div>
             <div class="form-group mb-3">
-                <input type="text" class="form-control" name="price" step="0.01" id="price" value="<?= $products['price'] ?>">
+                <input type="text" class="form-control" name="price" step="0.01" id="price" value="<?= $products['price'] ?>" required>
             </div>
             <div class="form-group mb-3">
-                <input type="text" class="form-control" name="size" id="size" value="<?= $products['size'] ?>">
+                <input type="text" class="form-control" name="size" id="size" value="<?= $products['size'] ?>" required>
             </div>
             <div class="form-group mb-3">
-                <input type="text" class="form-control" name="image" id="image" value="<?= $products['image'] ?>">
+                <input type="text" class="form-control" name="image" id="image" value="<?= $products['image'] ?>" required>
             </div>
             <div class="form-group mb-3">
                 <input type="submit" class="btn btn-primary" value="Update Product">

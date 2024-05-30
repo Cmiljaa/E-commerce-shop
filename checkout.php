@@ -14,6 +14,11 @@ $cart_items = $cart -> getCartItems();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+    if(!isset($_POST['country']) || !isset($_POST['city']) ||!isset($_POST['zip']) ||!isset($_POST['address'])){
+        $response -> sessionMessage("danger", "Error!");
+        exit();
+    }
+
     $order = new Order();
 
     $delivery_address = $_POST['country'] . ", " . $_POST['city'] . ", " . $_POST['zip'] . ", " . $_POST['address'];

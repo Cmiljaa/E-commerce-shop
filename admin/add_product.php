@@ -3,6 +3,11 @@
 require_once 'admin_config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if(!isset($_POST['name']) || !isset($_POST['price']) ||!isset($_POST['size']) ||!isset($_POST['image'])){
+        $response -> sessionMessage("danger", "Error!");
+        exit();
+    }
     
     $name = $_POST['name'];
 
@@ -39,20 +44,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="" method="POST">
             <div class="form-group mb-3">
                 <label for="name">Product Name</label>
-                <input type="text" class="form-control" name="name" id="name">
+                <input type="text" class="form-control" name="name" id="name" required>
             </div>
             <div class="form-group mb-3">
                 <label for="price">Product Price</label>
-                <input type="text" class="form-control" name="price" step="0.01" id="price">
+                <input type="text" class="form-control" name="price" step="0.01" id="price" required>
             </div>
             <div class="form-group mb-3">
                 <label for="size">Product Size</label>
-                <input type="text" class="form-control" name="size" id="size">
+                <input type="text" class="form-control" name="size" id="size" required>
             </div>
             <input type="hidden" name="image" id="photoPathInput">
             <div id="dropzone-upload" class="dropzone"></div>
             <div class="form-group mb-3" style="margin-top: 15px;">
-                <input type="submit" class="btn btn-primary" value="Add Product">
+                <input type="submit" class="btn btn-primary" value="Add Product" required>
             </div>
             
         </form>
