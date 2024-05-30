@@ -12,5 +12,9 @@ class ResponseManager{
         
         exit();
     }
+
+    public function changeDateFormat($date){
+        $date = new DateTime($date); $formattedDate = $date->format('F j, Y, g:i a'); return $formattedDate;
+    }
 }
 

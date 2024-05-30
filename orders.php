@@ -38,7 +38,7 @@ $orders = $order -> getOrders();
                 <td><?=$order['size'] ?></td>
                 <td><img style="width: 140px; height: 140px;;" src="images/<?=$order['image'] ?>" alt="<?=$order['image'] ?>"></td>
                 <td><?=$order['delivery_address'] ?></td>
-                <td><?php $date = new DateTime($order['created_at']); $formattedDate = $date->format('F j, Y, g:i a'); echo $formattedDate; ?></td>
+                <td><?=$response -> changeDateFormat($order['created_at']); ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>
