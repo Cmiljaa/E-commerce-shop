@@ -1,2 +1,3 @@
-- E commerce shop 
+- E commerce shop
+- Import sql file in your database
 - admin admin for admin dashboard
